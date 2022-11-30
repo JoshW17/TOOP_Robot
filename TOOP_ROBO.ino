@@ -76,21 +76,16 @@ void setup()
 
 void loop()
 {
-	if (SW_AVAILABLE)
-		{
-		if (ReadSwitch(SW_1)==1)
-		{
-			Lcd.locate(1,0);
-			Gyr.resetDegrees();
-			EmoroServo.write(SERVO_0, 1400);
-			EmoroServo.write(SERVO_1, 1400);
-			while (Gyr.readDegreesZ() < 90)
-				{
-
-				}
-				Lcd.locate(1,0);
-				Lcd.print("                    ");
-				EmoroServo.write(SERVO_0, 1500);
-				EmoroServo.write(SERVO_1, 1500);
-		}
+    if (SW_AVAILABLE)
+        {
+        if (ReadSwitch(SW_1)==1)
+        {
+                RohanIyer.fwdUntil();
+                RohanIyer.turnRight();
+                RohanIyer.turnLeft();
+                RohanIyer.aboutFace();
+        }
+        RohanIyer.fwdUntil();
+        RohanIyer.aboutFace();
+	}
 }
